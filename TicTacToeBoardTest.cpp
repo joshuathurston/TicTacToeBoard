@@ -77,7 +77,7 @@ TEST(TicTacToeBoardTest, get_placed_value)
     ASSERT_EQ(obj.getPiece(0,0), X);
 }
 
-TEST(TicTacToeBoardTest, check_if_win_X)
+TEST(TicTacToeBoardTest, check_if_win_X_row)
 {
 	TicTacToeBoard obj;
 	obj.placePiece(0,0);
@@ -88,7 +88,7 @@ TEST(TicTacToeBoardTest, check_if_win_X)
 	ASSERT_EQ(obj.getWinner(), X);
 }
 
-TEST(TicTacToeBoardTest, check_if_win_O)
+TEST(TicTacToeBoardTest, check_if_win_O_col)
 {
 	TicTacToeBoard obj;
 	obj.placePiece(1,1);
@@ -98,6 +98,89 @@ TEST(TicTacToeBoardTest, check_if_win_O)
 	obj.placePiece(2,2);
 	obj.placePiece(0,0);
 	ASSERT_EQ(obj.getWinner(), O);
+}
+
+TEST(TicTacToeBoardTest, check_if_win_O_row)
+{
+	TicTacToeBoard obj;
+	obj.placePiece(2,2);
+	obj.placePiece(0,0);
+	obj.placePiece(1,0);
+	obj.placePiece(0,1);
+	obj.placePiece(2,0);
+	obj.placePiece(0,2);
+	ASSERT_EQ(obj.getWinner(), O);
+}
+
+TEST(TicTacToeBoardTest, check_if_win_X_col)
+{
+	TicTacToeBoard obj;
+	obj.placePiece(1,0);
+	obj.placePiece(0,1);
+	obj.placePiece(2,0);
+	obj.placePiece(2,2);
+	obj.placePiece(0,0);
+	ASSERT_EQ(obj.getWinner(), X);
+}
+
+TEST(TicTacToeBoardTest, check_if_win_X_backslash)
+{
+	TicTacToeBoard obj;
+	obj.placePiece(0,0);
+	obj.placePiece(0,1);
+	obj.placePiece(1,1);
+	obj.placePiece(1,2);
+	obj.placePiece(2,2);
+	ASSERT_EQ(obj.getWinner(), X);
+}
+TEST(TicTacToeBoardTest, check_if_win_X_forwardslash)
+{
+	TicTacToeBoard obj;
+	obj.placePiece(0,2);
+	obj.placePiece(0,1);
+	obj.placePiece(1,1);
+	obj.placePiece(2,2);
+	obj.placePiece(2,0);
+	ASSERT_EQ(obj.getWinner(), X);
+}
+
+TEST(TicTacToeBoardTest, check_if_win_O_backslash)
+{
+	TicTacToeBoard obj;
+	obj.placePiece(2,1);
+	obj.placePiece(0,0);
+	obj.placePiece(0,1);
+	obj.placePiece(1,1);
+	obj.placePiece(1,2);
+	obj.placePiece(2,2);
+	ASSERT_EQ(obj.getWinner(), O);
+}
+
+TEST(TicTacToeBoardTest, check_if_win_O_forwardslash)
+{
+	TicTacToeBoard obj;
+	obj.placePiece(2,1);
+	obj.placePiece(0,2);
+	obj.placePiece(0,1);
+	obj.placePiece(1,1);
+	obj.placePiece(2,2);
+	obj.placePiece(2,0);
+	ASSERT_EQ(obj.getWinner(), O);
+}
+
+TEST(TicTacToeBoardTest, check_if_blank)
+{
+	TicTacToeBoard obj;
+	obj.placePiece(0,1);
+	obj.placePiece(0,0);
+	obj.placePiece(1,0);
+	obj.placePiece(2,0);
+	obj.placePiece(1,1);
+	obj.placePiece(2,1);
+	obj.placePiece(2,2);
+	obj.placePiece(1,2);
+	obj.placePiece(0,2);
+	ASSERT_EQ(obj.getWinner(), Blank);
 }
 
 TEST(TicTacToeBoardTest, check_invalid_win)
