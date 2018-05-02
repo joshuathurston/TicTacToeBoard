@@ -1,5 +1,7 @@
 # TicTacToeBoard
 
+[![Build Status](https://travis-ci.org/joshuathurston/TicTacToeBoard.svg?branch=master)](https://travis-ci.org/joshuathurston/TicTacToeBoard)
+
 ## Associated Enumerated Types
 `Piece` has four possible values: `X`,`O`,`Invalid`, and `Blank`
 
